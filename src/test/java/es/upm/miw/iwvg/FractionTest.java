@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class FractionTest {
     private Fraction testFraction;
@@ -31,5 +32,15 @@ public class FractionTest {
         assertEquals(0.25, result.decimal());
         assertEquals(0.5, this.testFraction.decimal());
         assertEquals(0.5, f2.decimal());
+    }
+
+    @Test
+    void testSet(){
+        Integer oldNumerator = testFraction.getNumerator();
+        Integer oldDenominator = testFraction.getDenominator();
+        testFraction.setNumerator(3);
+        testFraction.setDenominator(4);
+        assertNotEquals(oldNumerator, testFraction.getNumerator());
+        assertNotEquals(oldDenominator, testFraction.getDenominator());
     }
 }
